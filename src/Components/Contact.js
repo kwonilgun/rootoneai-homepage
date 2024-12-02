@@ -17,13 +17,15 @@ const Contact = () => {
         <ul>
           <li>
             <strong>Email:</strong>{" "}
-            <a href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+            <a href="mailto:kwonilgun8404@gmail.com">kwonilgun8404@gmail.com</a>
           </li>
           <li>
-            <strong>Phone:</strong> <a href="tel:+123456789">+1 234 567 89</a>
+            <strong>Phone : 070 7593 3484</strong>
           </li>
           <li>
-            <strong>Address:</strong> 1234 Your Street, Your City, Country
+            <strong>
+              Address : 경기도 하남시 미사강변한강로 135 나동 1048호
+            </strong>
           </li>
         </ul>
       </section>

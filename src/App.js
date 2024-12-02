@@ -6,6 +6,8 @@ import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import Support from "./Components/Support";
+import Terms from "./Components/Terms";
 
 function App() {
   return (
@@ -14,11 +16,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         {/* <Route path="/Navbar" element={<Navbar />} /> */}
         <Route path="/about" element={<About />} />
 
         <Route path="/contact" element={<Contact />} />
-        {/* <Route path="/cart" element={<Cart />} />   */}
+        <Route path="/support" element={<Support />} />
+        {/* <Route path="/terms" element={<Terms />} /> */}
       </Routes>
       <Footer />
     </Router>

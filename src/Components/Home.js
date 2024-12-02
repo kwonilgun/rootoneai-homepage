@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import BannerBackground from "../Assests/home-banner-background.png";
-import BannerImage from "../Assests/home-banner-image.png";
-import rootonecircular from "../Assests/rootoneai-circular_image.png";
+import BannerBackground from "../Assests/images/home-banner-background.png";
+import BannerImage from "../Assests/images/home-banner-image.png";
+import rootonecircular from "../Assests/images/rootoneai-circular_image.png";
 
 import { FiArrowRight } from "react-icons/fi";
 import ReactPlayer from "react-player";
 // import Navar from "./Navbar";
+import { useTranslation } from "react-i18next";
 
 // 모달 스타일 정의 (CSS-in-JS)
 const modalStyle = {
@@ -34,6 +35,10 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isWindow, setIsWindow] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  // 현재 언어를 확인하여 버튼 텍스트 변경
+  const currentLanguage = i18n.language;
 
   useEffect(() => {
     setIsWindow(true);
@@ -56,14 +61,13 @@ const Home = () => {
           <img src={BannerBackground} alt="" />
         </div>
         <div className="home-text-section">
-          <h1 className="primary-heading">
-            스마트 의료 및 헬스케어의 혁신 리더
-          </h1>
-          <p className="primary-text">
-            Rootone AI는 AI와 IoT 기술을 융합하여 더 나은 삶의 질을 제공하고,
-            건강 관리의 효율성을 극대화하는 플랫폼을 구축하는 것을 목표로
-            합니다.
-          </p>
+          {currentLanguage === "ko" ? (
+            <h1 className="primary-heading">{t("homeTitle")}</h1>
+          ) : (
+            <h1 className="primary-heading-small-font">{t("homeTitle")}</h1>
+          )}
+
+          <p className="primary-text">{t("homeDescription")}</p>
           <button
             className="secondary-button"
             onClick={() => {
@@ -72,23 +76,14 @@ const Home = () => {
               console.log("ozs 데모 클릭!!!!!");
             }}
           >
-            OZS 데모 <FiArrowRight />{" "}
+            {t("homeOzsDemo")} <FiArrowRight />{" "}
           </button>
         </div>
         <div className="home-image-section">
           <img src={rootonecircular} alt="" />
         </div>
+
         {/* 모달 */}
-        {/* <>
-          <section>
-            <h2>React Player</h2>
-            {isWindow && (
-              <div>
-                <ReactPlayer url="https://www.youtube.com/watch?v=pSUydWEqKwE" />
-              </div>
-            )}
-          </section>
-        </> */}
         {isModalOpen && (
           <div
             style={modalStyle}
@@ -111,11 +106,21 @@ const Home = () => {
             {isWindow && (
               <div>
                 <ReactPlayer
-                  controls
-                  //    width={"80%"}
-                  //    height={"80%"}
+                  controls={true}
+                  width={"50%"}
+                  height={"50%"}
                   playing={isPlaying}
-                  url="https://www.youtube.com/shorts/KgLi1sA3WvI"
+                  //    url="https://www.youtube.com/watch?v=KgLi1sA3WvI"
+                  url={require("../Assests/videos/ozs_demo_1.m4v")}
+                  config={{
+                    youtube: {
+                      playerVars: {
+                        modestbranding: 1, // YouTube 로고 최소화
+                        rel: 0, // 관련 동영상 표시 금지
+                        //     origin: "http://localhost:3000", // 현재 도메
+                      },
+                    },
+                  }}
                 />
               </div>
             )}
