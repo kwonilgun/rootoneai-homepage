@@ -1,31 +1,30 @@
 import React from "react";
 import "../CSS/Contact.css";
 
+import { useTranslation } from "react-i18next";
+
 const Contact = () => {
+  const { t, i18n } = useTranslation();
+  // 현재 언어를 확인하여 버튼 텍스트 변경
+  const currentLanguage = i18n.language;
   return (
     <body>
       <header>
-        <h1>Contact Us</h1>
-        <p>
-          Feel free to reach out to us through the form below or the provided
-          contact details.
-        </p>
+        <h1>{t("contactUs")}</h1>
+        <p>{t("contactFeelFree")}</p>
       </header>
 
       <section class="contact-info">
-        <h2>Contact Information</h2>
+        <h2>{t("contactInformation")}</h2>
         <ul>
           <li>
-            <strong>Email:</strong>{" "}
-            <a href="mailto:kwonilgun8404@gmail.com">kwonilgun8404@gmail.com</a>
+            <strong>{t("contactEmail")}</strong>{" "}
           </li>
           <li>
-            <strong>Phone : 070 7593 3484</strong>
+            <strong>{t("contactPhone")}</strong>
           </li>
           <li>
-            <strong>
-              Address : 경기도 하남시 미사강변한강로 135 나동 1048호
-            </strong>
+            <strong>{t("contactAddress")}</strong>
           </li>
         </ul>
       </section>

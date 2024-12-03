@@ -59,8 +59,13 @@ span {
 }
 
 .navbar-links-container {
-  margin: 0;
   cursor: pointer;
+  z-index: 500; /* 다른 요소들보다 위에 표시 */
+  position: fixed; /* 뷰포트를 기준으로 위치를 설정 */
+  align-items: flex-end;
+  /* border: 2px solid blue; */
+  right: 0; /* 화면의 오른쪽 끝으로 이동 */
+  top: 1rem; /* 화면의 위쪽 끝으로 이동 (필요에 따라 조정 가능) */
 }
 .primary-button {
   padding: 0.9rem 1.75rem;
@@ -353,10 +358,12 @@ span {
   /* align-items: center; 로고와 텍스트를 수직으로 정렬 */
   /* gap: 0.5rem; 로고와 텍스트 사이의 간격 조정 */
   margin: 1rem; /* 전체 위치 조정 */
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 .nav-logo-layer {
   position: fixed; /* 화면에 고정 */
+
+  flex-direction: column;
   width: 6rem;
   height: auto;
   top: 1rem; /* 원하는 위치 */
@@ -375,6 +382,19 @@ span {
   /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  그림자 효과 */
 }
 
+.nav-logo-title {
+  position: fixed; /* 화면에 고정 */
+  flex-direction: column;
+  width: 8rem;
+  height: auto;
+  top: 7rem; /* 원하는 위치 */
+  left: 1rem;
+  z-index: 1000; /* 다른 요소들보다 위에 표시 */
+  display: flex; /* Flexbox 활성화 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  font-weight: bold;
+}
 .nav-logo {
   width: 6rem; /* 원하는 너비 */
   height: auto; /* 비율 유지 */

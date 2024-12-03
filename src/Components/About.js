@@ -1,42 +1,52 @@
 import React from "react";
 import "../CSS/About.css";
 
+import { useTranslation } from "react-i18next";
+
 const About = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <body>
       <header>
-        <h1>About Rootone AI</h1>
-        <p>
-          Rootone AI는 스마트 IoT 기술과 인공지능(AI)을 활용하여 혁신적인
-          헬스케어 솔루션을 제공합니다. 원격 제어와 데이터 분석 기술을 통해 삶의
-          질을 향상시키는 것을 목표로 합니다.
+        <h1>{t("AboutRootOneAI")}</h1>
+        <p
+          style={{
+            maxWidth: "80%",
+            margin: "1rem auto", // 가로 방향 중앙 정렬
+            //   borderWidth: "2px",
+            //   borderColor: "blue",
+            //   borderStyle: "solid",
+            display: "flex", // Flexbox 활성화
+            alignItems: "center", // 세로 중앙 정렬
+            justifyContent: "center", // 가로 중앙 정렬
+            height: "100px", // 필요에 따라 높이 지정
+          }}
+        >
+          {t("AboutSubTitle")}
         </p>
       </header>
 
       <div class="container">
         <section id="vision">
           <h2>Our Vision</h2>
-          <p>
-            AI 기반 헬스케어의 선구자로서, 원격 관리와 진단 서비스를 통해 글로벌
-            의료 시스템의 혁신을 주도합니다. 개인 맞춤형 의료와 예방 중심의
-            헬스케어를 실현하는 플랫폼 구축.
-          </p>
+          <p>{t("AboutVision")}</p>
         </section>
 
         <section id="what-we-do">
           <h2>What We Do</h2>
           <ul>
             <li>
-              <strong>스마트 디바이스 원격 제어 플랫폼 개발:</strong> IoT 기술을
-              활용한 오존 살균기 제어 앱과 플랫폼 제공.
+              <strong>{t("AboutWhatTodoPlatformTitle")}</strong>{" "}
+              {t("AboutWhatTodoPlatformSubTitle")}
             </li>
             <li>
-              <strong>심장 진단 패치 및 자동 진단 서비스 연구:</strong> 웨어러블
-              패치와 AI를 결합해 실시간 심장 상태를 분석하고 예측.
+              <strong>{t("AboutWhatTodoPatchTitle")}</strong>{" "}
+              {t("AboutWhatTodoPatchSubTitle")}
             </li>
             <li>
-              <strong>클라우드 기반 서비스 구축:</strong> 아마존 AWS를 기반으로
-              안정적이고 확장 가능한 서버 운영.
+              <strong>{t("AboutWhatTodoCloudTitle")}</strong>{" "}
+              {t("AboutWhatTodoCloudSubTitle")}
             </li>
           </ul>
         </section>
@@ -45,19 +55,17 @@ const About = () => {
           <h2>Our Values</h2>
           <ul>
             <li>
-              <strong>Innovation:</strong> 끊임없는 연구와 개발을 통해 새로운
-              솔루션 제공.
+              <strong>Innovation:</strong> {t("AboutWhatTodoValueInnovation")}
             </li>
             <li>
-              <strong>User-Centric Design:</strong> 누구나 쉽게 사용할 수 있는
-              직관적인 플랫폼 설계.
+              <strong>User-Centric Design:</strong> {t("AboutWhatTodoValueUCC")}
             </li>
             <li>
-              <strong>Trust:</strong> 의료 데이터 보안과 서비스의 신뢰성 유지.
+              <strong>Trust:</strong> {t("AboutWhatTodoValueTrust")}
             </li>
             <li>
-              <strong>Global Scalability:</strong> 전 세계 사용자와 의료 시장을
-              겨냥한 기술 설계.
+              <strong>Global Scalability:</strong>{" "}
+              {t("AboutWhatTodoValueGlobal")}
             </li>
           </ul>
         </section>
@@ -66,37 +74,29 @@ const About = () => {
           <h2>Milestones</h2>
           <ul>
             <li>
-              <strong>2020:</strong> Rootone AI 설립
+              <strong>2020:</strong> {t("AboutWhatTodo2020")}
             </li>
             <li>
-              <strong>2024:</strong> 오존 살균기 원격 제어 플랫폼 출시.
+              <strong>2024:</strong> {t("AboutWhatTodo2024")}
             </li>
             <li>
-              <strong>2025:</strong> 심장 진단 패치 개발 시작.
+              <strong>2025:</strong> {t("AboutWhatTodo2025")}
             </li>
             <li>
-              <strong>2026:</strong> AI 진단 알고리즘 베타 테스트 완료.
+              <strong>2026:</strong> {t("AboutWhatTodo2026")}
             </li>
-            <li>
+            {/* <li>
               <strong>2027:</strong> 글로벌 서비스 확장을 위한 파트너십 체결.
-            </li>
+            </li> */}
           </ul>
         </section>
 
         <section id="contact">
           <h2>Contact Us</h2>
           <div class="contact">
-            <p>
-              <strong>Location:</strong> [경기도 하남시 미사강변한강로 135 나동
-              1048호]
-            </p>
-            <p>
-              <strong>Email:</strong>{" "}
-              <a href="mailto:support@rootoneai.com">support@rootoneai.com</a>
-            </p>
-            <p>
-              <strong>Phone:</strong> +82-XXX-XXXX-XXXX
-            </p>
+            <p>{t("contactAddress")}</p>
+            <p>{t("contactEmail")}</p>
+            <p>{t("contactPhone")}</p>
             {/* <p>
               <strong>Follow us:</strong> <a href="#">Facebook</a> |{" "}
               <a href="#">LinkedIn</a> | <a href="#">Twitter</a> |{" "}

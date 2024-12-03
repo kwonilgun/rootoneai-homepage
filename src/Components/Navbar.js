@@ -64,6 +64,7 @@ const Navbar = () => {
         <div className="nav-logo-layer">
           <img src={RootOne} alt="" />
         </div>
+        <div className="nav-logo-title">{t("navbarRootOneAi")}</div>
         {/* <div className="header-logo-section-columns">
           <span>Have fun and do good</span>
           <span>then the fortune will come.</span>
